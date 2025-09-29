@@ -1,0 +1,67 @@
+:root{
+  --bg:#0f1720;
+  --panel:#0b1220;
+  --accent:#1f8a5f;
+  --muted:#9aa6b2;
+  --cell-border:rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter,Segoe UI,Roboto,system-ui,Arial; background:linear-gradient(180deg,#07101a 0%,#081422 100%); color:#e6f0f6; min-height:100vh;
+  display:flex; flex-direction:column;
+}
+header{
+  padding:10px 16px; display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+header h1{margin:0; font-size:1.1rem}
+.controls{display:flex; gap:8px; align-items:center}
+.controls input{width:64px; padding:4px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:inherit}
+
+main{display:flex; gap:12px; padding:12px; flex:1; align-items:flex-start}
+.toolbox{
+  width:220px; background:rgba(255,255,255,0.02); padding:12px; border-radius:8px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.toolbox h2,h3{margin:8px 0}
+.tool-list{display:flex; flex-direction:column; gap:6px}
+.tool{
+  padding:8px; border-radius:6px; background:transparent; color:inherit; border:1px solid rgba(255,255,255,0.03); text-align:left;
+}
+.tool.active{background:var(--accent); color:#08261b; font-weight:600}
+.toolbox button{margin-top:8px; width:100%; padding:8px; border-radius:6px; background:transparent; border:1px solid rgba(255,255,255,0.05)}
+textarea,input{width:100%}
+.canvas-wrap{flex:1; display:flex; justify-content:center; align-items:center; min-height:60vh}
+#gridContainer{
+  outline:none;
+  background:linear-gradient(#08202a, #031217);
+  padding:10px; border-radius:8px; box-shadow:0 8px 24px rgba(2,6,10,0.6);
+  touch-action: manipulation;
+}
+
+/* grid and cells */
+.grid{
+  display:grid;
+  background:linear-gradient(#0b3b25, #07311f);
+  border-radius:6px;
+  padding:4px;
+}
+.cell{
+  width:var(--cell-size); height:var(--cell-size);
+  border:1px solid var(--cell-border);
+  background:transparent;
+  position:relative;
+}
+.cell.pitch{background:linear-gradient(180deg,#0f6b3e,#0d5f36); box-shadow:inset 0 0 6px rgba(0,0,0,0.45)}
+.cell.stand{background:linear-gradient(180deg,#7a5b3b,#6b4f31); filter:contrast(1.02)}
+.cell.dugout{background:linear-gradient(180deg,#384857,#2b3946)}
+.cell.flag::after{
+  content:"⚑";
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:12px;
+}
+
+/* responsive */
+@media (max-width:800px){
+  .toolbox{display:none}
+  header{padding:8px}
+}
