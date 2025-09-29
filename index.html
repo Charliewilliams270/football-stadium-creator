@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Football Stadium Creator</title>
+  <title>3D Football Stadium Creator</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Football Stadium Creator</h1>
+    <h1>3D Stadium Creator</h1>
     <div class="controls">
-      <label for="gridSize">Grid size:</label>
-      <input id="gridSize" type="number" min="8" max="64" value="24" />
-      <label for="cellPx">Cell px:</label>
-      <input id="cellPx" type="number" min="8" max="64" value="18" />
+      <label>Grid:
+        <input id="gridSize" type="number" min="8" max="128" value="24" />
+      </label>
+      <label>Cell px:
+        <input id="cellPx" type="number" min="4" max="64" value="2" />
+      </label>
       <button id="resizeGrid">Resize</button>
     </div>
   </header>
@@ -34,22 +36,25 @@
       <button id="undo">Undo</button>
       <button id="clear">Clear</button>
       <button id="exportJson">Download stadium (.json)</button>
-      <button id="exportImage">Export Image</button>
+      <button id="exportGLB">Export GLB (glTF)</button>
 
       <h3>Stadium Info</h3>
       <label>Stadium name
-        <input id="stadiumName" type="text" placeholder="My Stadium" />
+        <input id="stadiumName" type="text" placeholder="My 3D Stadium" />
       </label>
     </aside>
 
     <section class="canvas-wrap">
-      <div id="gridContainer" tabindex="0"></div>
+      <div id="canvasHolder"></div>
     </section>
   </main>
 
-  <footer>
-    <small>Made with ⚽ • Save and edit stadiums locally</small>
-  </footer>
+  <footer><small>Made with three.js • Click grid to place objects</small></footer>
+
+  <!-- three.js and helpers from CDN -->
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://unpkg.com/three@0.158.0/examples/js/exporters/GLTFExporter.js"></script>
 
   <script src="app.js"></script>
 </body>
