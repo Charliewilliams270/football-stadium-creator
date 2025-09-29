@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Football Stadium Creator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Football Stadium Creator</h1>
+    <div class="controls">
+      <label for="gridSize">Grid size:</label>
+      <input id="gridSize" type="number" min="8" max="64" value="24" />
+      <label for="cellPx">Cell px:</label>
+      <input id="cellPx" type="number" min="8" max="64" value="18" />
+      <button id="resizeGrid">Resize</button>
+    </div>
+  </header>
+
+  <main>
+    <aside class="toolbox">
+      <h2>Tools</h2>
+      <div class="tool-list">
+        <button class="tool active" data-tool="pitch">Pitch</button>
+        <button class="tool" data-tool="stand">Stand</button>
+        <button class="tool" data-tool="dugout">Dugout</button>
+        <button class="tool" data-tool="flag">Corner Flag</button>
+        <button class="tool" data-tool="erase">Eraser</button>
+        <button class="tool" data-tool="select">Select/Move</button>
+      </div>
+
+      <h3>Actions</h3>
+      <button id="undo">Undo</button>
+      <button id="clear">Clear</button>
+      <button id="exportJson">Download stadium (.json)</button>
+      <button id="exportImage">Export Image</button>
+
+      <h3>Stadium Info</h3>
+      <label>Stadium name
+        <input id="stadiumName" type="text" placeholder="My Stadium" />
+      </label>
+    </aside>
+
+    <section class="canvas-wrap">
+      <div id="gridContainer" tabindex="0"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Made with ⚽ • Save and edit stadiums locally</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
